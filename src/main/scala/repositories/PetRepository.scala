@@ -11,7 +11,7 @@ object PetRepository {
   def all() : List[Pet] = _pet.toList
 
   def findByName(name : String) : Option[Pet] = { None
-    //_pet.find(pet => pet.name == name)
+    _pet.find(pet => pet.name == name)
   }
 
   def dogs() : List[Pet] = Nil

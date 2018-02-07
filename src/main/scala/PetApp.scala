@@ -1,4 +1,4 @@
-import model.Dog
+import model.{Cat, Dog}
 import repositories.PetRepository
 
 
@@ -12,6 +12,9 @@ object PetApp extends App {
   val d1 = new Dog("Toblerone")
   //Add Pets
   PetRepository.add(d1)
+
+  val c1 = new Cat("Garfield")
+  PetRepository.add(c1)
 
   // Remove Pets
 
