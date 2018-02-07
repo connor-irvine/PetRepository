@@ -32,11 +32,12 @@ isListEmpty(numbers)
 
 sealed trait Pet{
   val name : String
+  val age : Int
 }
-case class Dog(name : String) extends Pet{
+case class Dog(name : String, age : Int) extends Pet{
   def speak =  "woof!"
 }
-case class Cat(name : String) extends Pet{
+case class Cat(name : String, age : Int) extends Pet{
   def speak = "meow!"
 }
 def isDog(pet: Pet) : String = pet match {
@@ -44,5 +45,15 @@ def isDog(pet: Pet) : String = pet match {
   case c : Cat => s"${c.name} I am a cat, ${c.speak}"
   case _ => "Something else"
 }
-isDog(Dog("Toblerone"))
-isDog(Cat("Garfield"))
+isDog(Dog("Toblerone", 12))
+isDog(Cat("Garfield", 2))
+
+def determineAgeOfPet(pet : Pet) = pet match {
+  case Dog(name, age) if name == "Storm" => s"$name is {$age*7} years old"
+  case Cat(name, age) => s"$name is $age years old"
+  case Dog(name, _) => s"I'm too old for this, I'm $name"
+}
+
+determineAgeOfPet(Dog("Toberlone", 12))
+determineAgeOfPet(Cat("Garfield", 6))
+
