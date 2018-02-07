@@ -1,7 +1,22 @@
+import model.Dog
 import repositories.PetRepository
 
 
 object PetApp extends App {
 
-  PetRepository.all()
+  //Instantiate PetRepository
+  //Call all() on repo
+ val pets = PetRepository.all()
+  println(pets)
+
+  val d1 = new Dog("Toblerone")
+  //Add Pets
+  PetRepository.add(d1)
+
+  // Remove Pets
+
+ //list all() pets in repo
+  val p2 = PetRepository.all()
+  println(p2)
+
 }
