@@ -19,7 +19,7 @@ object PetRepository {
   def other() : List[Pet] = Nil
 
   def add(pet: Pet*) : List[Pet] = {
-    pet.foreach(p => _pets.+=(p))
+    pet.foreach(p => _pet.+=(p))
     all()
   }
 

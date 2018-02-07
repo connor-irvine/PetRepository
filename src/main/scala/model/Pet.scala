@@ -17,6 +17,6 @@ trait Meow extends Talking {
   override def talk: String = "meow"
 }
 
-final class Dog(override val name: String) extends Pet with Talking with Woof
+final case class Dog(override val name: String) extends Pet with Talking with Woof
 
-final class Cat(override val name: String) extends Pet with Talking with Meow
+final case  class Cat(override val name: String) extends Pet with Talking with Meow
