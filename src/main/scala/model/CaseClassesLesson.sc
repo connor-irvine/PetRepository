@@ -30,19 +30,19 @@ def isListEmpty(list: List[Int]) = list match {
 val numbers = List(1, 2, 3)
 isListEmpty(numbers)
 
-//sealed trait Pet{
-//  val name : String
-//  def speak() : String = "hello"
-//}
-//final case class Dog(override val name : String) extends Pet{
-//  override def speak(): String = "woof!"
-//}
-//final case class Cat(override val name : String) extends Pet{
-//  override def speak(): String = "meow!"
-//}
-//def whoDis(pet: Pet) = {
-//  pet match {
-//    case Dog(name)=> s"This is a dog called $name"
-//    case Cat(name)=> s"This is a cal called $name"
-//  }
-//}
+sealed trait Pet{
+  val name : String
+}
+case class Dog(name : String) extends Pet{
+  def speak =  "woof!"
+}
+case class Cat(name : String) extends Pet{
+  def speak = "meow!"
+}
+def isDog(pet: Pet) : String = pet match {
+  case d : Dog => s"${d.name} I am a dog, ${d.speak}"
+  case c : Cat => s"${c.name} I am a cat, ${c.speak}"
+  case _ => "Something else"
+}
+isDog(Dog("Toblerone"))
+isDog(Cat("Garfield"))
