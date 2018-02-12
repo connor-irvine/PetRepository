@@ -1,7 +1,7 @@
 abstract class Blaster{
   def launch : String
 }
-final case class FalconHeavy extends {
+final case class FalconHeavy extends Blaster {
   override def launch = "Launching the falcon heavy"
 
   def hasTeslaAttached : Boolean = true
@@ -17,5 +17,7 @@ val rs = RocketShip(List(new FalconHeavy(), new FalconHeavy()))
 rs match{
   case RocketShip(Nil) =>
   case RocketShip(h :: tail) =>
-      .tail
+      h.
+  case RocketShip(List( h @ FalconHeavy(), t @ FalconHeavy())) =>
+    h.hasTeslaAttached
 }
