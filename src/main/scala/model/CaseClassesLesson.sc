@@ -77,4 +77,4 @@ determineAgeOfPet(Cat("Garfield", 6))
 //
 //list.map(double)
 //intMap(list, double)
-//intMap2(list, double)
+//intMap2 (list, double)
