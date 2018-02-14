@@ -1,4 +1,5 @@
-
+import model.Cat
+import repositories.PetRepository._pet
 
 def double(int: Int) = int * 2
 
@@ -57,24 +58,24 @@ def determineAgeOfPet(pet : Pet) = pet match {
 determineAgeOfPet(Dog("Toberlone", 12))
 determineAgeOfPet(Cat("Garfield", 6))
 
-//def intMap(list: List[Int], f: Int => Int): List[Int] = {
-//  if (list != Nil) {
-//    f(list.head) :: intMap(list.tail, f)
-//  } else {
-//    list
-//  }
-//}
-//
-//def intMap2(list: List[Int], f: Int => Int): List[Int] = {
-//  list match {
-//    case Nil => list
-//    case head :: tail => f(head) :: intMap2(tail, f)
-//  }
-//}
-//
-//val list = List(1,2,3)
-//val double = (x: Int) => x * 2
-//
-//list.map(double)
-//intMap(list, double)
-//intMap2 (list, double)
+def intMap(list: List[Int], f: Int => Int): List[Int] = {
+  if (list != Nil) {
+    f(list.head) :: intMap(list.tail, f)
+  } else {
+    list
+  }
+}
+
+def intMap2(list: List[Int], f: Int => Int): List[Int] = {
+  list match {
+    case Nil => list
+    case head :: tail => f(head) :: intMap2(tail, f)
+  }
+}
+
+val list = List(1,2,3)
+val double = (x: Int) => x * 2
+
+list.map(double)
+intMap(list, double)
+intMap2(list, double)

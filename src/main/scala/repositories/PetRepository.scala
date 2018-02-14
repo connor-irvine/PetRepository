@@ -1,6 +1,6 @@
 package repositories
 
-import model.Pet
+import model.{Cat, Dog, Pet}
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -14,16 +14,32 @@ object PetRepository {
     _pet.find(pet => pet.name == name)
   }
 
-  def dogs() : List[Pet] = Nil
-  def cats() : List[Pet] = Nil
-  def other() : List[Pet] = Nil
+  def dogs() : List[Dog] = {
+ _pet.toList.flatMap {
+  case d @ Dog(_)  =>
+    Some (d)
+  case _ =>  None
+}
+  }
+
+  def cats() :	List[Cat]	=	{
+    _pet.toList.flatMap	{
+      case	c	@	Cat(_)	=>
+        Some(c)
+      case	_	=>	None
+    }
+  }
 
   def add(pet: Pet*) : List[Pet] = {
     pet.foreach(p => _pet.+=(p))
     all()
   }
 
-  def removeByName(name : String) : List[Pet] = Nil
+  def removeByName(name : String) : List[Pet] = {
+  all().filterNot(p => p.name == name)
+  }
+
+
   def update(petApp: Pet) : List[Pet] = Nil
 
-}
+
