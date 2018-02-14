@@ -42,6 +42,6 @@ object PetRepository {
 
 
   def update(petApp: Pet): List[Pet] = Nil
-
+_pet.update
 
 }
