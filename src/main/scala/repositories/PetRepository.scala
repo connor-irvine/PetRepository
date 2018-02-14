@@ -35,7 +35,11 @@ object PetRepository {
     all()
   }
 
-  def removeByName(name : String) : List[Pet] = Nil
+  def removeByName(name : String) : List[Pet] = {
+  all().filterNot(p => p.name == name)
+  }
+
+
   def update(petApp: Pet) : List[Pet] = Nil
 
-}
+
