@@ -22,6 +22,7 @@ object PetRepository {
       case _ => None
     }
 
+  //def other():
 
   def cats(): List[Cat] =
     _pet.toList.flatMap {
@@ -42,6 +43,6 @@ object PetRepository {
 
 
   def update(petApp: Pet): List[Pet] = Nil
-_pet.update
+//_pet.update
 
 }

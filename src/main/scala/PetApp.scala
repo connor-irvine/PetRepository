@@ -22,4 +22,9 @@ object PetApp extends App {
   val p2 = PetRepository.all()
   println(p2)
 
+ val d2 = new Dog("Bailey")
+ PetRepository.add(d2)
+
+ val c2 = new Cat("Mog")
+ PetRepository.add(c2)
 }
