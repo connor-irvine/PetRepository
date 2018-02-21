@@ -57,14 +57,14 @@ def sumTailRecursive (nums : List[Int]) : Int = {
 
 case class Person(name : String)
 
-def filterforAdams(p : List[Person]) : List[Person] = {
+def filter(p : List[Person], f : Person => Boolean) : List[Person] = {
 
   @tailrec
   def filter(t: List[Person], acc: List[Person]): List[Person] = {
     t match {
       case Nil => acc
       case h :: tail =>
-        if (h.name != "Adam") {
+        if (f(h)) {
           filter(tail, h :: acc)
         } else {
           filter(tail, acc)
@@ -76,4 +76,4 @@ def filterforAdams(p : List[Person]) : List[Person] = {
 }
   val people = List(Person("Adam"), Person("Michael"), Person("Connor"), Person("Adam"), Person("Doug"), Person("Matty"))
 
-filterforAdams(people)
+filter(people, x => x.name == "Adam")
