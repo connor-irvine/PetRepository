@@ -37,7 +37,7 @@ sealed trait Pet{
 }
 case class Dog(name : String, age : Int) extends Pet{
   def speak =  "woof!"
-}
+}=[]
 case class Cat(name : String, age : Int) extends Pet{
   def speak = "meow!"
 }
